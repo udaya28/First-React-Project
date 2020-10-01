@@ -1,5 +1,6 @@
 import React from 'react';
 import './card-list.styles.css';
+import { Card } from '../card/card.component';
 
 export const CardList = (props) => {
     console.log(props.users)
@@ -8,9 +9,7 @@ export const CardList = (props) => {
         
       {
       props.users.map((user) => (
-        <h1 key={user.id} className="user">
-          {user.name}
-        </h1>
+        <Card key = {user.id} user ={user}/>
       ))}
     </div>
   );

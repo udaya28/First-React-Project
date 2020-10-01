@@ -10,17 +10,8 @@
     /* align-content: flex-end; */
     padding :2%;
     margin: 2%;
-    border: 3px solid rgb(139, 139, 139); 
+    /* border: 3px solid rgb(139, 139, 139);  */
     border-radius: 5px;
     
 }
-.user{
-
-    height: 200px;
-    width: 200px;
-    padding :10px;
-    
-    margin: 10px;
-    border: 3px solid rgb(139, 139, 139);
-    border-radius: 5px;
-}
+ 
