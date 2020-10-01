@@ -2,36 +2,37 @@ import React from 'react';
 import './App.css';
 import { Component } from 'react';
 
+
+import { CardList } from './components/card-list/card-list.component';
+// npm run deploy
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      users: [
-        {
-          name: 'udaya',
-          id:"1"
-        },
-        {
-          name: 'vivek',
-          id:"2"
-        },
-        {
-          name: 'akassh',
-          id:"3"
-        },
-        {
-          name: 'amoga',
-          id:"4"
-        },
-      ],
+      users: [],
     };
   }
+  
+  componentDidMount() {
+    try {
+      fetch('https://jsonplaceholder.typicode.com/users/')
+        .then((response) => response.json())
+        .then((data) => {
+          this.setState({ users: data });
+          
+        });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   render() {
     return (
       <div className="App">
-        {this.state.users.map((user) => (
-          <h1 key={user.id}>{user.name}</h1>
-        ))}
+        <CardList users = {this.state.users}>
+          
+        </CardList>
+        
       </div>
     );
   }
