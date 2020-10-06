@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import { Component } from 'react';
-
+import {SearchBox} from './components/search-box/search-box.component'
 
 import { CardList } from './components/card-list/card-list.component';
 // npm run deploy
@@ -10,6 +10,7 @@ class App extends Component {
     super();
     this.state = {
       users: [],
+      searchKey :"",
     };
   }
   
@@ -27,9 +28,13 @@ class App extends Component {
   }
 
   render() {
+    const {users,searchKey} = this.state;
+    const filteredUsers = users.filter((user)=>user.name.toLowerCase().includes(searchKey.toLowerCase()));
     return (
       <div className="App">
-        <CardList users = {this.state.users}>
+        
+        <SearchBox placeholder="Search Robots" handelChange={(e) => this.setState({ searchKey: e.target.value })}/>
+        <CardList users = {filteredUsers}>
           
         </CardList>
         
